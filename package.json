@@ -1,0 +1,16 @@
+{
+  "name": "js_eval",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "test": "vitest"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jsdom": "^20.0.3",
+    "vitest": "^0.26.3"
+  }
+}
