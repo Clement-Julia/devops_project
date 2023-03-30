@@ -1,34 +1,25 @@
 import './style.css'
-import Card from "./src/components/Card";
 import UserPage from "./src/pages/UserPage";
 import FiltrePage from "./src/pages/FiltrePage";
 import TabManager from "./src/utils/TabManager";
-
+import PagePersonnage from './src/pages/PagePersonnage';
 
 const rootElement = document.querySelector('#app')
 
-const tabManager = new TabManager(rootElement, {
+export const tabManager = new TabManager(rootElement, {
   user: {
     component: UserPage,
-    params: [{ page: 1 }]
+  },
+  pagePerso: {
+    component: PagePersonnage
   },
   filtre: {
     component: FiltrePage
   }
-})
+});
 
-tabManager.openTabById('user')
-
-// Actualise la liste en cas de clic sur les flèches
-document.querySelectorAll('[data-page]').forEach(element => {
-  element.addEventListener('click', () => {
-    tabManager.openTabById('user', element.getAttribute('data-page'));
-  })
-})
-
-document.querySelector('#select-page').addEventListener('change', (e) => {
-  tabManager.openTabById('user', e.target.value);
-})
+// tabManager.openTabById('ep', [{ season: 1 }])
+tabManager.openTabById('user', [{ page: 1 }])
 
 /* --------------------------------- SEARCHBAR --------------------------------- */
 const searchBar = document.querySelector('#searchBar');
@@ -47,6 +38,20 @@ btnSubmit.addEventListener('click', () => {
   renderList(searchValue, searchTypeValue);
 })
 
+document.querySelectorAll('.character').forEach(element => {
+  element.addEventListener('click',() =>{
+    tabManager.openTabByIdPerso('pagePerso', element.getAttribute('data-id'));
+  })
+})
+
+document.querySelector('.tab-perso').addEventListener('click',() =>{
+  tabManager.openTabByIdPerso('user', [{ page: 1 }]);
+});
+
+document.querySelector('.tab-ep').addEventListener('click',() =>{
+  tabManager.openTabByIdPerso('ep', [{ season: 1 }]);
+});
+
 function renderList(searchValue, searchTypeValue) {
-  tabManager.openTabById('filtre', [{ searchValue: searchValue, searchTypeValue: searchTypeValue }]);
+  tabManager.openTabById('filtre', [{ searchValue: searchValue, searchTypeValue: searchTypeValue, page: 1 }]);
 }
