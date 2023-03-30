@@ -34,6 +34,7 @@ btnSubmit.addEventListener('click', () => {
   }
 
   let searchTypeValue = "name";
+  
   renderList(searchValue, searchTypeValue);
 })
 

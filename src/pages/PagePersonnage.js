@@ -18,3 +18,6 @@ const PagePersonnage = async (obj) =>{
 }
 
 export default PagePersonnage;
+
+
+

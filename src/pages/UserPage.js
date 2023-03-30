@@ -16,36 +16,28 @@ const fetchPage = async (page) => {
 const UserPage = async (obj) => {
   const res = await fetchPage(obj.page)
 
-  const title = {
-    tagName: 'h1',
-    text: 'Liste des personnages :',
-    attributes: {
-      class: 'display'
-    }
-  }
-
   const divPage = {
     tagName: 'div',
     classList: ['divPage'],
     children: [
       {
         tagName: 'select',
-        attributes: {
-          'id': 'select-page',
-          'name': 'select-page',
+        attributes:{
+          'id':'select-page',
+          'name':'select-page',
           class: 'bg-dark'
         },
       },
     ]
   }
-
+  
   const previousElement = {
     tagName: 'div',
     classList: ['previous'],
-    attributes: {
-      'id': 'previous',
-      'title': 'Page précédente',
-      'data-page': '-1'
+    attributes:{
+      'id':'previous',
+      'title':'Page précédente',
+      'data-page':'-1'
     },
     children: [
       {
@@ -58,10 +50,10 @@ const UserPage = async (obj) => {
   const nextElement = {
     tagName: 'div',
     classList: ['next'],
-    attributes: {
-      'id': 'next',
-      'title': 'Page suivante',
-      'data-page': '1'
+    attributes:{
+      'id':'next',
+      'title':'Page suivante',
+      'data-page':'1'
     },
     children: [
       {
@@ -71,7 +63,6 @@ const UserPage = async (obj) => {
     ]
   }
 
-  const titleHTML = createElement(title);
   const HTMLElement = createElement(divPage);
   const previousHTML = createElement(previousElement);
   const nextHTML = createElement(nextElement);
@@ -97,7 +88,7 @@ const UserPage = async (obj) => {
       option.value = i;
       option.text = i;
 
-      if (obj.page == option.value) {
+      if(obj.page == option.value){
         option.selected = true;
       }
 
@@ -123,13 +114,12 @@ const UserPage = async (obj) => {
   }
 
   const rootElement = document.createElement('div');
-
-  rootElement.appendChild(titleHTML);
+  
   rootElement.appendChild(HTMLElement);
   rootElement.appendChild(previousHTML);
   rootElement.appendChild(nextHTML);
   rootElement.appendChild(CardList(res.results));
-
+  
   return rootElement;
 }
 
