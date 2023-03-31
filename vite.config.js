@@ -2,6 +2,15 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   test: {
-    environment: 'jsdom'
+    environment: 'jsdom',
+    exclude: ['main.js', 'test/*', 'test-playwright/*'],
+  },
+  server: {
+    watch: {
+      usePolling: true,
+    },
+    host: true,
+    strictPort: true,
+    port: 3000,
   }
 })
