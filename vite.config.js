@@ -3,7 +3,7 @@ import { defineConfig } from "vite";
 export default defineConfig({
   test: {
     environment: 'jsdom',
-    exclude: ['main.js', 'test/*', 'test-playwright/*'],
+    exclude: ['main.js', 'test-playwright/*'],
   },
   server: {
     watch: {
