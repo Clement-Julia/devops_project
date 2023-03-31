@@ -2,7 +2,8 @@ import Perso from "../components/Perso";
 
 export const fetchPerso = async (id) =>{
     try {
-        const req = await fetch(`https://rickandmortyapi.com/api/character/${id}`)
+        let apiUrl = `https://rickandmortyapi.com/api/character/${id}`;
+        const req = await fetch(apiUrl)
         const res = await req.json()
 
         return res
