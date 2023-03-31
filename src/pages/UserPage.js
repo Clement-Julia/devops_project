@@ -2,7 +2,7 @@ import { tabManager } from "../../main";
 import CardList from "../components/CardList"
 import createElement from "../dom/createElement";
 
-const fetchPage = async (page) => {
+export const fetchPage = async (page) => {
   try {
     const req = await fetch(`https://rickandmortyapi.com/api/character?page=${page}`)
     const res = await req.json();

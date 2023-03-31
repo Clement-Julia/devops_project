@@ -1,6 +1,6 @@
 import Perso from "../components/Perso";
 
-const fetchPerso = async (id) =>{
+export const fetchPerso = async (id) =>{
     try {
         const req = await fetch(`https://rickandmortyapi.com/api/character/${id}`)
         const res = await req.json()
