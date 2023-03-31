@@ -335,10 +335,6 @@ body {
   margin-right: 10px;
 }
 
-.pointer {
-  cursor: pointer;
-}
-
 /* ---------------- SCROLLBAR ---------------- */
 ::-webkit-scrollbar {
   width: 17px;
