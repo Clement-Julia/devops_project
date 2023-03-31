@@ -37,18 +37,24 @@ Ce projet est une SPA (Single Page Application) qui utilise l'API Rick & Morty p
 
 ## Utilisation
 
-Une fois l'application lancée, vous pouvez accéder à la page d'accueil à l'adresse ```http://localhost:5173```.
+Une fois l'application lancée, vous pouvez accéder à la page d'accueil à l'adresse ```http://localhost:3000```. 
+<br>
 Vous verrez la liste des personnages de Rick & Morty, ainsi que des informations sur chaque personnage (nom, image, espèce, etc.).
 
-## Déploiement
+## Déploiement via Docker
 
-Pour déployer l'application, nous utilisons Docker et Kubernetes. Suivez ces étapes pour déployer l'application :
-1. Installer Minikube et kubectl.
-2. Exécuter minikube start pour démarrer le cluster.
-3. Exécuter kubectl apply -f k8s/ pour déployer l'application.
+Pour déployer l'application avec **Docker** : exécuter ```docker-compose up```.
+
+## Déploiement via Kubernetes/Ingress
+
+Pour déployer l'application, nous utilisons **Docker** et **Kubernetes**. Suivez ces étapes pour déployer l'application :
+1. Installer **Minikube** et **kubectl**.
+2. Exécuter ```minikube start``` pour démarrer le cluster.
+3. Exécuter ```kubectl apply -f k8s/``` pour déployer l'application.
 4. Accéder à l'application en ouvrant l'adresse IP du cluster dans un navigateur.
 
 ## Tests
 
 Les tests fonctionnels des requêtes vers l'API sont automatisés via GitHub Actions lors des <ins>Pull Request</ins> vers la branche "main".
+<br>
 Pour exécuter les tests localement, vous pouvez exécuter ```npm test```.
