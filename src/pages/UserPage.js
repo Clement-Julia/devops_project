@@ -4,13 +4,7 @@ import createElement from "../dom/createElement";
 
 export const fetchPage = async (page) => {
   try {
-
     let apiUrl = `https://rickandmortyapi.com/api/character?page=${page}`;
-
-    if (typeof process !== 'undefined') {
-      apiUrl = `${process.env.PAGE_REQUEST}${page}`;
-    }
-    
     const req = await fetch(apiUrl)
     const res = await req.json();
 
