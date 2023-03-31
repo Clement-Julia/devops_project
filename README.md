@@ -1,9 +1,9 @@
-# Introduction
-&emsp; &emsp;Une SPA qui utilise l'API [Rick & Morty](https://rickandmortyapi.com/) pour afficher notamment les personnages, les épisodes, ... de cette série.
+# Projet SPA avec l'API Rick & Morty
+Ce projet est une SPA (Single Page Application) qui utilise l'API Rick & Morty pour afficher les personnages de la série.
 <br>
 <br>
 
-## Package nécessaire
+## Pré-requis
 
 <div align="center">
   <table>
@@ -29,28 +29,37 @@
   </table>
 </div>
 
-## Instruction
+## Installation
 
-> Comment installer notre projet
+1. Cloner le projet à partir de Github.
+2. Dans le dossier racine du projet, exécuter la commande ```npm install``` pour installer les dépendances.
+3. Exécuter ```npm run dev``` pour lancer l'application en mode développement.
 
-Cloner notre projet :
+## Utilisation
 
-``` bash
-$ git clone https://github.com/Clement-Julia/js_eval.git 
-$ cd ../js_eval
-```
+Une fois l'application lancée, vous pouvez accéder à la page d'accueil à l'adresse ```http://localhost:3000```.
+Vous verrez la liste des personnages de Rick & Morty, ainsi que des informations sur chaque personnage (nom, image, espèce, etc.).
 
-Installer npm :
-``` npm
-$ npm install
-```
+## Déploiement
 
-Lancer le site en local :
-``` npm
-$ npm run dev
-```
+Pour déployer l'application, nous utilisons Docker et Kubernetes. Suivez ces étapes pour déployer l'application :
+1. Installer Minikube et kubectl.
+### Avec Docker :
+2. Exécuter ```minikube start --driver=docker``` pour démarrer le cluster.
+3. Exécuter ```minikube tunnel``` pour utiliser localhost.
+4. Exécuter ```kubectl apply -f .kube/kube.config.yaml``` pour déployer l'application.
+5. Accéder à l'application en ouvrant l'adresse localhost dans un navigateur.
 
-La commande pour les test :
-``` npm
-$ npm run test {le test}
-```
+### Avec Hyper-V :
+2. Exécuter ```minikube start``` pour démarrer le cluster.
+3. Exécuter ```kubectl apply -f .kube/kube.config.yaml``` pour déployer l'application.
+4. Accéder à l'application en ouvrant l'adresse IP du cluster dans un navigateur.
+
+## Tests
+
+Les tests fonctionnels des requêtes vers l'API sont automatisés via GitHub Actions lors des <ins>Pull Requests</ins> vers la branche "main".
+Pour exécuter les tests localement, vous pouvez exécuter ```npm test```.
+
+## Tests UI/UX
+
+Pour exécuter les tests end to end localement, vous pouvez exécuter ```npm playwright:test```.
