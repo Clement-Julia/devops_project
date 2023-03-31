@@ -23,6 +23,7 @@ tabManager.openTabById('user', [{ page: 1 }])
 
 /* --------------------------------- SEARCHBAR --------------------------------- */
 const searchBar = document.querySelector('#searchBar');
+const searchSelect = document.querySelector('#searchType');
 const btnSubmit = document.querySelector('#btnSubmit');
 
 btnSubmit.addEventListener('click', () => {
@@ -33,7 +34,7 @@ btnSubmit.addEventListener('click', () => {
     return false;
   }
 
-  let searchTypeValue = "name";
+  let searchTypeValue = searchSelect.value;
   
   renderList(searchValue, searchTypeValue);
 })
